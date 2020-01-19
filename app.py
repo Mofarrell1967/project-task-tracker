@@ -1,12 +1,37 @@
 import os
-from flask import Flask
+from flask import Flask, render_template, redirect, request, url_for
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId 
 
 app = Flask(__name__)
+app.config["MONGO_DBNAME"] = 'project-task-tracker'
+app.config["MONGO_URI"] = 'mongodb+srv://root:Lismara1@myfirstcluster-gpsqs.mongodb.net/project-task-tracker?retryWrites=true&w=majority'
 
+mongo = PyMongo(app)
 
 @app.route('/')
-def hello():
-    return 'Hello World ...again'
+@app.route('/get_tasks')
+def get_tasks():
+    return render_template("tasks.html", tasks=mongo.db.tasks.find())
+
+@app.route('/add_task')
+def add_task():
+    return render_template("addtask.html", projects=mongo.db.projects.find())
+
+@app.route('/insert_task', methods=['POST'])
+def insert_task():
+    tasks = mongo.db.tasks
+    tasks.insert_one(request.form.to_dict())
+    return redirect(url_for('get_tasks'))  
+
+@app.route('/edit_task/<task_id>')
+def edit_task(task_id):
+    the_task =  mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
+    all_projects =  mongo.db.projects.find()
+    return render_template('edittask.html', task=the_task,
+                           projects=all_projects)
+
+
 
 
 if __name__ == '__main__':
