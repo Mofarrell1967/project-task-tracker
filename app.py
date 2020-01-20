@@ -74,15 +74,13 @@ def update_project(project_id):
 
 @app.route('/insert_project', methods=['POST'])
 def insert_project():
-    category_doc = {'project_name': request.form.get('project_name')}
+    project_doc = {'project_name': request.form.get('project_name')}
     mongo.db.projects.insert_one(project_doc)
     return redirect(url_for('get_projects'))
 
 @app.route('/add_project')
 def add_project():
     return render_template('addproject.html')
-
-
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
