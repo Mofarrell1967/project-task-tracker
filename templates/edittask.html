@@ -49,14 +49,32 @@
         </div>
         <div class="row">
             <div class="switch">
-                <label>
-                    {% if task.is_urgent %}
-                          <input id="is_urgent" name="is_urgent" type="checkbox" checked>
+                                <label>
+                    {% if task.key %}
+                          <input id="key" name="key" type="checkbox" checked>
                     {% else %}
-                         <input id="is_urgent" name="is_urgent" type="checkbox">
+                         <input id="key" name="key" type="checkbox">
                     {% endif%}
                   <span class="lever"></span>
-                  Is Urgent
+                  Key
+                </label>
+                <label>
+                    {% if task.external %}
+                          <input id="external" name="external" type="checkbox" checked>
+                    {% else %}
+                         <input id="external" name="external" type="checkbox">
+                    {% endif%}
+                  <span class="lever"></span>
+                  External Customer
+                </label>
+                <label>
+                    {% if task.billable %}
+                          <input id="billable" name="billable" type="checkbox" checked>
+                    {% else %}
+                         <input id="billable" name="billable" type="checkbox">
+                    {% endif%}
+                  <span class="lever"></span>
+                  Is Billable
                 </label>
             </div>
         </div>
