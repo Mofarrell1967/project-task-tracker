@@ -13,11 +13,22 @@
                     
                 </div>
                 <div class="task_header col s9">
-                    <strong>{{task.task_name}}</strong> - {{task.due_date}}
+                <div class="row">
+                    Project Name:<strong>{{task.project_name}}</strong>                     
+                </div>    
+                <div class="row">   
+                    Task Name: <strong>{{task.task_name}}</strong> 
+                </div> 
+                <div class="row">     
+                    Due Date: <strong>{{task.due_date}}</strong>
+                </div>     
                 </div>
             </div>
             <div class="collapsible-body">
                 <span>
+                <div class="row">  
+                <strong>Task Description:</strong> 
+                 </div>
                 {{task.task_description}} 
             </span>
             </div>
