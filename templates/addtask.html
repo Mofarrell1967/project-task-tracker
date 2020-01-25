@@ -17,7 +17,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
-                <input id="task_name" name="task_name" type="text">
+               <textarea name="task_name" id="task_name" class="materialize-textarea"></textarea>
                 <label for="icon_prefix">Task Name</label>
             </div>
         </div>
@@ -29,12 +29,24 @@
             </div>
         </div>
          <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">assignment_ind</i>
-                <textarea name="staff_name" id="staff_name" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Assigned To</label>
+                    <div class="input-field col s12">
+                    <i class="material-icons prefix">poll</i>
+                    <select id="staff" name="staff_name">
+                  <option value="" disabled selected>Choose Staff</option>
+                  {% for name in staff %}
+                      <option value="{{name.staff_name}}">{{name.staff_name}}</option>
+                  {% endfor %}
+                </select>
+                    <label>Staff</label>
+                </div>
             </div>
-        </div>
+       <!--  <div class="row">
+           <div class="input-field col s12">
+                <i class="material-icons prefix">assignment_ind</i>
+                 <textarea name="staff_name" id="staff_name" class="materialize-textarea"></textarea>
+                <label for="icon_telephone">Assigned To</label>
+            </div> 
+        </div> -->
         <div class="row" id="matfix">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
