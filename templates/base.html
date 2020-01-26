@@ -9,24 +9,37 @@
 
 <body>
     <header>
-        <nav>
-            <div class="nav-wrapper blue-grey darken-2">
-                <a href="{{url_for('get_tasks')}}" class="brand-logo">Project Task Manager</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{url_for('get_tasks')}}">View Tasks</a></li>
-                    <li><a href="{{url_for('add_staff')}}">Add Staff</a></li>
-                    <li><a href="{{url_for('add_task')}}">New Task</a></li>
-                    <li><a href="{{url_for('get_projects')}}">Manage Projects</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{url_for('get_tasks')}}">View Tasks</a></li>
-                    <li><a href="{{url_for('add_staff')}}">Add Staff</a></li>
-                    <li><a href="{{url_for('add_task')}}">New Task</a></li>
-                     <li><a href="{{url_for('get_projects')}}">Manage Projects</a></li>
-                </ul>
-            </div>
-        </nav>
+   
+
+<ul id="task-dropdown" class="dropdown-content">
+  <li><a href="{{url_for('get_tasks')}}">Manage Tasks</a></li>
+  <li><a href="{{url_for('add_task')}}">Add Task</a></li> 
+</ul>
+<ul id="projects-dropdown" class="dropdown-content">
+  <li><a href="{{url_for('get_projects')}}">Manage Projects</a></li>
+  <li><a href="{{url_for('add_project')}}">Add Project</a></li> 
+</ul>
+<ul id="staff-dropdown" class="dropdown-content">
+  <li><a href="{{url_for('get_staff')}}">Manage Staff</a></li>
+  <li><a href="{{url_for('add_staff')}}">Add Staff</a></li> 
+</ul>
+<nav>
+  <div class="nav-wrapper blue-grey darken-2">
+     <a href="{{url_for('get_tasks')}}" class="brand-logo">Project Task Manager</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">         
+      <li><a class="dropdown-trigger" data-activates="task-dropdown">Tasks<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-trigger" data-activates="projects-dropdown">Projects<i class="material-icons right">arrow_drop_down</i></a></li>
+       <li><a class="dropdown-trigger" data-activates="staff-dropdown">Staff<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+    <!-- <ul class="side-nav" id="mobile-demo">     
+      <li><a class="dropdown-trigger" data-activates="task-dropdown">Tasks<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-trigger" data-activates="projects-dropdown">Projects<i class="material-icons right">arrow_drop_down</i></a></li>
+       <li><a class="dropdown-trigger" data-activates="staff-dropdown">Staff<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul> -->
+  </div>
+</nav>
+        
         
     </header>
     <main>
@@ -44,14 +57,15 @@
           </div>
          </footer>
      </body>    
-        
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            $(".dropdown-trigger").dropdown();
             $('.collapsible').collapsible();
             $('select').material_select();
             $(".button-collapse").sideNav();
+            
             
         });
 
