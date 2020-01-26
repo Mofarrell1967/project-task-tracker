@@ -30,24 +30,17 @@
         </div>
          <div class="row">
                     <div class="input-field col s12">
-                    <i class="material-icons prefix">poll</i>
+                    <i class="material-icons prefix">assignment_ind</i>
                     <select id="staff" name="staff_name">
                   <option value="" disabled selected>Choose Staff</option>
-                  {% for name in staff %}
-                      <option value="{{name.staff_name}}">{{name.staff_name}}</option>
+                  {% for sta in staff %}
+                      <option value="{{sta.staff_name}}">{{sta.staff_name}}</option>
                   {% endfor %}
                 </select>
-                    <label>Staff</label>
+                    <label>Assigned To:</label>
                 </div>
             </div>
-       <!--  <div class="row">
-           <div class="input-field col s12">
-                <i class="material-icons prefix">assignment_ind</i>
-                 <textarea name="staff_name" id="staff_name" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Assigned To</label>
-            </div> 
-        </div> -->
-        <div class="row" id="matfix">
+              <div class="row" id="matfix">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
                 <input id="due_date" name="due_date" type="text" class="datepicker">

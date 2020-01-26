@@ -84,9 +84,10 @@ def update_project(project_id):
 
 @app.route('/insert_project', methods=['POST'])
 def insert_project():
-    project_doc = {'project_name': request.form.get('project_name')}
-    mongo.db.projects.insert_one(project_doc)
+    projects = mongo.db.projects
+    projects.insert_one(request.form.to_dict())
     return redirect(url_for('get_projects'))
+
 
 @app.route('/add_project')
 def add_project():
