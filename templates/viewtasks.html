@@ -1,7 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 <h3>Tasks</h3>
 <div class="row">
-    <ul class="containter">
+   <ul class="collapsible">
         {% for task in tasks %}
         
         <li>
@@ -14,17 +14,17 @@
                 <div class="row">
                    Project Name:<strong class="blue-text spacing">{{task.project_name}}</strong>              
                 </div>
-                 <div class="row"> 
-                    Task Name: <strong class="green-text">{{task.task_name}}</strong> 
+                  <div class="row">
+                    Task Name: <strong class="blue-text spacing">{{task.task_name}}</strong> 
                   </div>  
                   <div class="row"> 
-                    Due Date: <strong class="green-text">{{task.due_date}}</strong>
+                    Due Date: <strong class="blue-text spacing">{{task.due_date}}</strong>
                     </div>  
                   <div class="row">   
-                    Assigned To: <strong class="green-text">{{task.staff_name}}</strong>
+                    Assigned To: <strong class="blue-text spacing">{{task.staff_name}}</strong>
                     </div>  
                 <div class="row"> 
-                    Description: <strong class="green-text">{{task.task_description}}</strong>
+                    Description: <strong class="blue-text spacing">{{task.task_description}}</strong>
                     </div>  
                        
                 
