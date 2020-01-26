@@ -10,6 +10,9 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:Lismara1@myfirstcluster-gpsqs.mong
 mongo = PyMongo(app)
 
 @app.route('/')
+def view_tasks():
+    return render_template("viewtasks.html", tasks=mongo.db.tasks.find())
+
 @app.route('/get_tasks')
 def get_tasks():
     return render_template("tasks.html", tasks=mongo.db.tasks.find())
@@ -120,6 +123,8 @@ def edit_staff(staff_id):
     return render_template('editstaff.html',
     staff=mongo.db.staff.find_one({'_id': ObjectId(staff_id)}))
 
+
+ 
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

@@ -20,8 +20,17 @@
     margin-top: 5px;
 }
 
+.viewtask_header {
+    margin-top: 5px;
+    text-align: center;
+}
+
 .box {
     padding-top: 55px;
+}
+
+.spacing {
+    padding-left: 25px;
 }
 
 
