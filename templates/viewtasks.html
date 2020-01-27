@@ -1,31 +1,35 @@
 {% extends 'base.html'%} {% block content %}
 <h3>Tasks</h3>
 <div class="row">
-   <ul class="collapsible">
+   <ul class="container">
         {% for task in tasks %}
         <li>
-            <div class="collapsible-header">
+            <div class="card horizontal">
                 <div class="col s1"> 
                    
                     
                 </div>
                  <div class="task_header col s12">
-                <div class="row">
                 
-                   Project Name:<strong class="blue-text text-darken-2 spacing">{{task.project_name}}</strong>   
-                    </div>        
                 <div class="row">
-                     Task Name:<strong class="blue-text spacing">{{task.task_name}}</strong>
+                <div class="col s6">Project Name:</div> 
+                <strong class="blue-text text-darken-2">{{task.project_name}}</strong>   
+                    </div> 
+                         
+                <div class="row">
+                     <div class="col s6">Task Name: </div>  <strong class="blue-text text-darken-2">{{task.task_name}}</strong>
                  </div>  
                   <div class="row"> 
-                    Due Date: <strong class="blue-text spacing">{{task.due_date}}</strong>
+                    <div class="col s6">Due Date: </div><strong class="blue-text text-darken-2">{{task.due_date}}</strong>
                     </div>  
                   <div class="row">   
-                    Assigned To: <strong class="blue-text spacing">{{task.staff_name}}</strong>
+                    <div class="col s6">Assigned To: </div><strong class="blue-text text-darken-2">{{task.staff_name}}</strong>
                     </div>  
                 <div class="row"> 
-                    Description: <strong class="blue-text spacing">{{task.task_description}}</strong>
+                    <div class="col s6">Description: </div> <strong class="blue-text text-darken-2">{{task.task_description}}</strong>
                     </div>  
+                
+
                        
                          <div class="row">
             <div class="switch">
