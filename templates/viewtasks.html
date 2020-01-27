@@ -5,28 +5,25 @@
         {% for task in tasks %}
         <li>
                 <div class="card horizontal">
-                <div class="col s1"> 
+                <div class="col"> 
                 </div>
-                 <div class="task_header col s12">
+                 <div class="task_header col s10">
                 <div class="row">
-                <div class="col s6">Project Name:</div> 
+                <div class="col s4">Project Name:</div> 
                 <strong class="blue-text text-darken-2">{{task.project_name}}</strong>   
                  </div> 
                          
                 <div class="row">
-                     <div class="col s6">Task Name: </div>  <strong class="blue-text text-darken-2">{{task.task_name}}</strong>
+                     <div class="col s4">Task Name: </div>  <strong class="blue-text text-darken-2">{{task.task_name}}</strong>
                  </div>  
                   <div class="row"> 
-                    <div class="col s6">Due Date: </div><strong class="blue-text text-darken-2">{{task.due_date}}</strong>
+                    <div class="col s4">Due Date: </div><strong class="blue-text text-darken-2">{{task.due_date}}</strong>
                     </div>  
                   <div class="row">   
-                    <div class="col s6">Assigned To: </div><strong class="blue-text text-darken-2">{{task.staff_name}}</strong>
+                    <div class="col s4">Assigned To: </div><strong class="blue-text text-darken-2">{{task.staff_name}}</strong>
                     </div>  
                 
-                
-
-                       
-                         <div class="row">
+                               <div class="row">
             <div class="switch">
                                 <label>
                     {% if task.key %}
