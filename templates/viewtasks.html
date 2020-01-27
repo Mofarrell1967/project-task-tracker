@@ -1,20 +1,17 @@
 {% extends 'base.html'%} {% block content %}
-<h3>Tasks</h3>
+<h4 class="center-align">Task List</h4>
 <div class="row">
    <ul class="container">
         {% for task in tasks %}
         <li>
-            <div class="card horizontal">
+                <div class="card horizontal">
                 <div class="col s1"> 
-                   
-                    
                 </div>
                  <div class="task_header col s12">
-                
                 <div class="row">
                 <div class="col s6">Project Name:</div> 
                 <strong class="blue-text text-darken-2">{{task.project_name}}</strong>   
-                    </div> 
+                 </div> 
                          
                 <div class="row">
                      <div class="col s6">Task Name: </div>  <strong class="blue-text text-darken-2">{{task.task_name}}</strong>
@@ -25,9 +22,7 @@
                   <div class="row">   
                     <div class="col s6">Assigned To: </div><strong class="blue-text text-darken-2">{{task.staff_name}}</strong>
                     </div>  
-                <div class="row"> 
-                    <div class="col s6">Description: </div> <strong class="blue-text text-darken-2">{{task.task_description}}</strong>
-                    </div>  
+                
                 
 
                        
