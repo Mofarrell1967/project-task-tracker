@@ -36,5 +36,20 @@
     
 }
 
+.dropdown-content {
+    background: none;  //overwrites default materialzie value of white
+}
 
+.dropdown-content li > a, .dropdown-content li > span {
+    background-color: white;  //needed now that the whole menu has no background
+}
+.dropdown-content li:hover, .dropdown-content li.active {
+    background: none; //no white on hover
+}
+
+.dropdown-content li.spacer {
+    min-height: 65px;  //height of the nav element
+    cursor: default;  //so it doesn't look like a menu option
+    opacity: 0;  //the magic
+}
 
