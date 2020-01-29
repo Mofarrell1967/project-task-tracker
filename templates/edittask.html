@@ -47,6 +47,7 @@
                 <label for="icon_prefix">Due Date</label>
             </div>
         </div>
+
         <div class="row">
             <div class="switch">
                                 <label>
@@ -86,6 +87,20 @@
             <button class=".btn_small waves-effect waves-light" type="submit" name="action">Cancel
                 <i class="material-icons right">cancel</i>                
              </button>
+           
+             </div>
+             <div class="row">
+             <div class="switch">
+              <label>
+                    {% if task.completed %}
+                          <input id="completed" name="completed" type="checkbox" checked>
+                    {% else %}
+                         <input id="completed" name="completed" type="checkbox">
+                    {% endif%}
+                  <span class="lever"></span>
+                  Completed
+                </label>
+        </div>
         </div>
     </form>
 </div>

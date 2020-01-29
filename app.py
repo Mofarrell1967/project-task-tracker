@@ -46,8 +46,9 @@ def update_task(task_id):
         'staff_name': request.form.get('staff_name'),
         'due_date': request.form.get('due_date'),
         'key':request.form.get('key'),
-        'external':request.form.get('external'),
-        'billable':request.form.get('billable')
+        'external':request.form.get('external'),        
+        'billable':request.form.get('billable'),
+        'completed':request.form.get('completed')
     })
     return redirect(url_for('get_tasks'))
 

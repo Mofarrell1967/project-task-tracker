@@ -2,6 +2,7 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #f5f5f5;
   }
 
   main {
@@ -43,6 +44,11 @@
   white-space: nowrap;
   z-index: 1;
   will-change: width, height;
+}
+
+.card {
+    padding-top: 10px;
+
 }
 
 
