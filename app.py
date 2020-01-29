@@ -130,7 +130,14 @@ def edit_staff(staff_id):
 def project_tasker(project_id):
     project=mongo.db.projects.find_one({'_id': ObjectId(project_id)})
     projects=mongo.db.tasks.find({ "project_name" : project["project_name"] })
-    return render_template("projects.html", projects=projects)
+    return render_template("projecttasks.html", projects=projects)
+
+@app.route("/task/<staff_id>")
+def staff_tasker(staff_id):
+    stafflist=mongo.db.tasks.find_one({'_id': ObjectId(task_id)})
+    slist=mongo.db.tasks.find({ "staff_name" : stafflist["staff_name"] })
+    return render_template("stafftasks.html", slist=tasks)
+
 
  
 
