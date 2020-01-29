@@ -19,7 +19,7 @@ def get_tasks():
 
 @app.route('/add_task')
 def add_task():
-    return render_template("addtask.html", projects=mongo.db.projects.find())
+    return render_template("addtask.html", projects=mongo.db.projects.find(), staff=mongo.db.staff.find())
 
 @app.route('/insert_task', methods=['POST'])
 def insert_task():
@@ -124,6 +124,12 @@ def edit_staff(staff_id):
     return render_template('editstaff.html',
     staff=mongo.db.staff.find_one({'_id': ObjectId(staff_id)}))
 
+
+@app.route("/task/<project_id>")
+def project_tasker(project_id):
+    project=mongo.db.projects.find_one({'_id': ObjectId(project_id)})
+    projects=mongo.db.tasks.find({ "project_name" : project["project_name"] })
+    return render_template("projects.html", projects=projects)
 
  
 
