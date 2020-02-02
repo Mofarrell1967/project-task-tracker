@@ -4,6 +4,8 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 
 
+
+
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'project-task-tracker'
 app.config["MONGO_URI"] = 'mongodb+srv://root:Lismara1@myfirstcluster-gpsqs.mongodb.net/project-task-tracker?retryWrites=true&w=majority'
@@ -13,6 +15,8 @@ mongo = PyMongo(app)
 @app.route('/')
 def view_tasks():
    return render_template("viewtasks.html", tasks=mongo.db.tasks.find())
+
+
 
 @app.route('/get_tasks')
 def get_tasks():
@@ -32,8 +36,9 @@ def insert_task():
 def edit_task(task_id):
     the_task =  mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
     all_projects =  mongo.db.projects.find()
-    return render_template('edittask.html', task=the_task,
-                           projects=all_projects)
+    all_staff =  mongo.db.staff.find()
+    return render_template('edittask.html', task=the_task, 
+                           projects=all_projects, staff=all_staff)
 
 @app.route('/update_task/<task_id>', methods=["POST"])
 def update_task(task_id):

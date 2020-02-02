@@ -8,7 +8,7 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix green-text text-darken-3">poll</i>
                 <select id="project" name="project_name">
-                  <option value="" disabled selected>Choose Project</option>
+                  <option value="" disabled selected >Choose Project</option>
                   {% for pro in projects %}
                       {% if pro.project_name == task.project_name%}
                       <option value="{{pro.project_name}}" selected >{{pro.project_name}}</option>
@@ -35,12 +35,17 @@
             </div>
         </div>
         <div class="row">
-         <div class="input-field col s12">
-                <i class="material-icons prefix green-text text-darken-3">assignment_ind</i>
-                <textarea name="staff_name" id="staff_name" class="materialize-textarea">{{task.staff_name}}</textarea>
-                <label for="icon_telephone">Assigned To</label>
+                    <div class="input-field col s12">
+                    <i class="material-icons prefix green-text text-darken-3">assignment_ind</i>
+                    <select id="staff" name="staff_name">
+                  <option value="" disabled selected>Choose Staff</option>
+                  {% for sta in staff %}
+                      <option value="{{sta.staff_name}}">{{sta.staff_name}}</option>
+                  {% endfor %}
+                </select>
+                    <label>Assigned To:</label>
+                </div>
             </div>
-        </div> 
             <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix green-text text-darken-3">today</i>
