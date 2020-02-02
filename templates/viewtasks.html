@@ -1,14 +1,18 @@
 {% extends 'base.html'%} {% block content %}
 
 
-<a href="{{url_for('staff_tasker', staff_id=staff._id)}}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>  
 
 <h4 class="center-align">Task List</h4>
+
+
 <div class="row">
    <ul class="container">
         {% for task in tasks %}
+
+
+    
         <li>
-        <div class="row">
+        <div class="row card-space">
              <div class="switch">
               <label>
                     {% if task.completed %}
@@ -21,7 +25,7 @@
                 </label>
         </div>
         </div>       
-                 <div class="card horizontal card">
+                 <div class="card horizontal card-view">
                  
                 <div class="col"> 
                  </div>
@@ -44,7 +48,7 @@
                     <div class="col s4">Assigned To: </div><strong class="blue-text text-darken-2">{{task.staff_name}}</strong>
                     </div>  
                 
-            <div class="row">
+            <div class="row card-view">
             <div class="switch">
                                 <label>
                     {% if task.key %}
@@ -75,18 +79,30 @@
                 </label>
             </div>
         </div>
+
+        
  
          
              </div>
-     
+    
            </div> 
-          
+        
  
             
                     </li>
                     
         {% endfor %}
     </ul>
+
+    <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li class="waves-effect"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
 </div>
 
 

@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 
+
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'project-task-tracker'
 app.config["MONGO_URI"] = 'mongodb+srv://root:Lismara1@myfirstcluster-gpsqs.mongodb.net/project-task-tracker?retryWrites=true&w=majority'
@@ -11,7 +12,7 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def view_tasks():
-    return render_template("viewtasks.html", tasks=mongo.db.tasks.find())
+   return render_template("viewtasks.html", tasks=mongo.db.tasks.find())
 
 @app.route('/get_tasks')
 def get_tasks():
@@ -25,8 +26,7 @@ def add_task():
 def insert_task():
     tasks = mongo.db.tasks
     tasks.insert_one(request.form.to_dict())
-    return redirect(url_for('get_tasks'))  
-
+    return redirect(url_for('get_tasks')) 
 
 @app.route('/edit_task/<task_id>')
 def edit_task(task_id):
@@ -112,7 +112,10 @@ def insert_staff():
 def update_staff(staff_id):
     staff = mongo.db.staff
     staff.update( {'_id': ObjectId(staff_id)},
-    {'staff_name':request.form.get('staff_name')})
+    {
+        'staff_name':request.form.get('staff_name'),
+        'team':request.form.get('team')
+        })
     return redirect(url_for('get_staff')) 
 
 @app.route('/delete_staff/<staff_id>')

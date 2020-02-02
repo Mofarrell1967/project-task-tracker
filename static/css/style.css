@@ -46,12 +46,15 @@
   will-change: width, height;
 }
 
-.card {
+.card-view {
     padding-top: 10px;
 
 }
 
+.card-space {
+    padding-top: 65px;
 
+}
 
 
 
