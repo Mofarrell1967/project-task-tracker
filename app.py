@@ -14,9 +14,11 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def view_tasks():
-   return render_template("viewtasks.html", tasks=mongo.db.tasks.find())
-
-
+    tasks = mongo.db.tasks
+    page = request.args.get('page', 1, type=int)
+    page_tasks = tasks.query.paginate(page=page, per_page=5)
+    return render_template('viewtasks.html', page_tasks=tasks)
+   
 
 @app.route('/get_tasks')
 def get_tasks():
